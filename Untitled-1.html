@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CHIC — Unisex Salon & Academy | Haircuts · Facials · Nail Art · Bridal</title>
+<meta name="description" content="CHIC Unisex Salon & Academy — Certified stylists crafting haircuts, facials, nail art and bridal looks. Book your appointment today." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<style>
+  :root{
+    --bg:#0e0d0c;
+    --bg-2:#17140f;
+    --cream:#f3ece1;
+    --cream-2:#e8dfd0;
+    --ink:#1a1814;
+    --muted:#8c8275;
+    --line:rgba(243,236,225,.12);
+    --accent:#ff6a2c;       /* logo orange */
+    --accent-2:#ff8a4c;
+    --accent-soft:#f6d9c6;
+    --gold:#c9a35e;
+    --shadow:0 30px 80px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--bg);
+    color:var(--cream);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--accent);color:#fff}
+
+  /* ====== Typography ====== */
+  .display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:-.01em;line-height:1.02}
+  .eyebrow{
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:.8em;
+  }
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--accent);display:inline-block}
+
+  /* ====== Layout ====== */
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+  section{position:relative;padding:120px 0}
+  @media (max-width:768px){section{padding:80px 0}}
+
+  /* ====== Backgrounds / FX ====== */
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.06;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .hero-bg{
+    position:absolute;inset:0;overflow:hidden;z-index:0;
+  }
+  .hero-bg .blob{
+    position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;
+    animation:float 18s ease-in-out infinite;
+  }
+  .blob.b1{width:520px;height:520px;background:radial-gradient(circle at 30% 30%,#ff6a2c,transparent 70%);top:-120px;right:-100px}
+  .blob.b2{width:480px;height:480px;background:radial-gradient(circle at 50% 50%,#c9a35e,transparent 70%);bottom:-140px;left:-80px;animation-delay:-6s}
+  .blob.b3{width:380px;height:380px;background:radial-gradient(circle at 50% 50%,#7a3b14,transparent 70%);top:40%;left:40%;animation-delay:-12s;opacity:.4}
+  @keyframes float{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(-30px,40px) scale(1.08)}
+  }
+
+  #particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+
+  /* ====== NAV ====== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:18px 0;transition:all .4s ease;
+    backdrop-filter:blur(0px);
+  }
+  header.nav.scrolled{
+    background:rgba(14,13,12,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+    padding:12px 0;
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo-wrap{display:flex;align-items:center;gap:14px}
+  .logo-circle{
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg,#e8dfd0,#c9bca7);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.4);
+    overflow:hidden;
+  }
+  .logo-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  .logo-text .name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;letter-spacing:.18em;line-height:1}
+  .logo-text .sub{font-size:9px;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;margin-top:4px}
+  .nav-links{display:flex;gap:36px;align-items:center}
+  .nav-links a{
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);
+    position:relative;padding:6px 0;font-weight:300;
+  }
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .35s ease}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{
+    background:var(--accent);color:#fff;padding:12px 22px;border-radius:50px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+    transition:all .3s ease;border:1px solid var(--accent);
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .nav-cta:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:22px;cursor:pointer}
+
+  @media (max-width:980px){
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:80%;max-width:340px;
+      background:var(--bg-2);flex-direction:column;justify-content:center;
+      padding:60px 30px;transform:translateX(100%);transition:transform .5s cubic-bezier(.7,0,.2,1);
+      gap:24px;z-index:60;border-left:1px solid var(--line);
+    }
+    .nav-links.open{transform:translateX(0)}
+    .nav-links a{font-size:16px}
+    .menu-toggle{display:block;z-index:70}
+  }
+
+  /* ====== HERO ====== */
+  .hero{min-height:100vh;display:flex;align-items:center;padding-top:140px}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;position:relative;z-index:2}
+  .hero-tag{margin-bottom:28px}
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:clamp(54px,8vw,118px);line-height:.95;letter-spacing:-.02em;
+    margin-bottom:28px;
+  }
+  .hero h1 .accent{color:var(--accent);font-style:italic;font-weight:500}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero p.lead{
+    font-size:17px;line-height:1.7;color:rgba(243,236,225,.78);
+    max-width:520px;margin-bottom:42px;font-weight:300;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn-primary{
+    background:var(--accent);color:#fff;padding:18px 34px;border-radius:50px;
+    font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    border:1px solid var(--accent);transition:all .35s ease;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary:hover{background:transparent;color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,106,44,.25)}
+  .btn-ghost{
+    background:transparent;color:var(--cream);padding:18px 34px;border-radius:50px;
+    font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+    border:1px solid var(--line);transition:all .35s ease;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-ghost:hover{border-color:var(--cream);background:rgba(243,236,225,.05);transform:translateY(-3px)}
+  .hero-meta{
+    display:flex;gap:36px;margin-top:54px;padding-top:32px;border-top:1px solid var(--line);
+  }
+  .hero-meta .item .num{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--accent);line-height:1}
+  .hero-meta .item .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  .hero-card{
+    position:relative;aspect-ratio:3/4;border-radius:200px 200px 18px 18px;
+    overflow:hidden;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    background:linear-gradient(180deg,rgba(255,106,44,.15),rgba(201,163,94,.1));
+  }
+  .hero-card::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 40%,rgba(14,13,12,.7));
+    z-index:2;
+  }
+  .hero-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .hero-card:hover img{transform:scale(1.05)}
+  .hero-badge{
+    position:absolute;bottom:24px;left:24px;right:24px;z-index:3;
+    display:flex;justify-content:space-between;align-items:flex-end;
+  }
+  .hero-badge .t{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic}
+  .hero-badge .s{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--accent-2);margin-top:4px}
+  .rotating-badge{
+    position:absolute;top:-30px;right:-30px;width:120px;height:120px;z-index:5;
+    animation:spin 18s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:50px}
+    .hero-card{max-width:380px;margin:0 auto}
+    .hero-meta{gap:24px;flex-wrap:wrap}
+  }
+
+  /* ====== MARQUEE ====== */
+  .marquee{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;background:var(--bg-2);padding:22px 0;
+  }
+  .marquee-track{display:flex;gap:60px;animation:scroll 30s linear infinite;white-space:nowrap}
+  .marquee-track span{
+    font-family:'Cormorant Garamond',serif;font-size:30px;font-style:italic;
+    color:var(--cream);opacity:.7;display:flex;align-items:center;gap:60px;
+  }
+  .marquee-track span::after{content:"✦";color:var(--accent);font-style:normal;font-size:18px}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ====== ABOUT ====== */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-visual{position:relative}
+  .about-img-main{
+    border-radius:18px;overflow:hidden;aspect-ratio:4/5;
+    border:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .about-img-main img{width:100%;height:100%;object-fit:cover}
+  .about-img-sub{
+    position:absolute;bottom:-40px;right:-40px;width:55%;aspect-ratio:1;
+    border-radius:18px;overflow:hidden;border:6px solid var(--bg);box-shadow:var(--shadow);
+  }
+  .about-img-sub img{width:100%;height:100%;object-fit:cover}
+  .about-experience{
+    position:absolute;top:-30px;left:-30px;background:var(--accent);color:#fff;
+    padding:22px 26px;border-radius:14px;text-align:center;box-shadow:0 20px 40px rgba(255,106,44,.35);
+  }
+  .about-experience .y{font-family:'Cormorant Garamond',serif;font-size:46px;line-height:1}
+  .about-experience .l{font-size:9px;letter-spacing:.25em;text-transform:uppercase;margin-top:4px}
+
+  .about-text h2{font-size:clamp(38px,5vw,64px);margin:18px 0 28px}
+  .about-text p{color:rgba(243,236,225,.75);font-size:16px;line-height:1.8;margin-bottom:20px;font-weight:300}
+  .cert-row{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;
+  }
+  .cert-item{
+    display:flex;gap:14px;align-items:flex-start;padding:18px;
+    background:rgba(243,236,225,.03);border:1px solid var(--line);border-radius:12px;
+    transition:all .35s ease;
+  }
+  .cert-item:hover{border-color:var(--accent);background:rgba(255,106,44,.06);transform:translateY(-4px)}
+  .cert-item i{color:var(--accent);font-size:22px;margin-top:2px}
+  .cert-item .t{font-size:14px;font-weight:600;letter-spacing:.05em}
+  .cert-item .d{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+
+  @media (max-width:880px){
+    .about-grid{grid-template-columns:1fr;gap:80px}
+    .about-img-sub{width:45%}
+    .cert-row{grid-template-columns:1fr}
+  }
+
+  /* ====== SERVICES ====== */
+  .section-head{text-align:center;max-width:680px;margin:0 auto 70px}
+  .section-head h2{font-size:clamp(40px,6vw,72px);margin:18px 0 16px}
+  .section-head p{color:rgba(243,236,225,.7);font-size:16px;line-height:1.7;font-weight:300}
+
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .service-card{
+    position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(243,236,225,.04),rgba(243,236,225,.01));
+    transition:all .5s cubic-bezier(.2,.7,.2,1);
+    aspect-ratio:.85;
+  }
+  .service-card .bg{position:absolute;inset:0;z-index:0;opacity:.4;transition:all .6s ease}
+  .service-card .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3)}
+  .service-card::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(14,13,12,.4) 0%,rgba(14,13,12,.85) 100%);
+    transition:opacity .4s ease;
+  }
+  .service-card:hover{transform:translateY(-8px);border-color:var(--accent)}
+  .service-card:hover .bg{opacity:.65;transform:scale(1.08)}
+  .service-card:hover .bg img{filter:grayscale(0)}
+  .service-content{
+    position:absolute;inset:0;z-index:2;padding:30px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .service-icon{
+    width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:rgba(255,106,44,.15);border:1px solid rgba(255,106,44,.4);color:var(--accent);
+    font-size:20px;transition:all .4s ease;
+  }
+  .service-card:hover .service-icon{background:var(--accent);color:#fff;transform:rotate(-8deg)}
+  .service-num{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--accent);letter-spacing:.2em}
+  .service-content h3{font-family:'Cormorant Garamond',serif;font-size:32px;margin:14px 0 10px;font-weight:600}
+  .service-content p{font-size:13px;color:rgba(243,236,225,.7);line-height:1.6;font-weight:300;margin-bottom:18px}
+  .service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .service-tags span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);padding:4px 10px;border:1px solid var(--line);border-radius:30px;background:rgba(0,0,0,.25)}
+  .service-link{
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);
+    display:inline-flex;align-items:center;gap:8px;font-weight:600;
+  }
+  .service-link i{transition:transform .35s ease}
+  .service-card:hover .service-link i{transform:translateX(6px)}
+
+  @media (max-width:1100px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.services-grid{grid-template-columns:1fr}}
+
+  /* ====== GALLERY ====== */
+  .gallery-filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:50px}
+  .gallery-filters button{
+    background:transparent;border:1px solid var(--line);color:var(--cream);
+    padding:10px 22px;border-radius:30px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    cursor:pointer;transition:all .3s ease;font-family:'Outfit',sans-serif;font-weight:500;
+  }
+  .gallery-filters button:hover{border-color:var(--accent);color:var(--accent)}
+  .gallery-filters button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:14px}
+  .gallery-item{
+    position:relative;border-radius:14px;overflow:hidden;cursor:pointer;
+    border:1px solid var(--line);
+  }
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .gallery-item::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(14,13,12,.85));
+    opacity:0;transition:opacity .4s ease;
+  }
+  .gallery-item .ovr{
+    position:absolute;bottom:20px;left:20px;right:20px;z-index:2;
+    opacity:0;transform:translateY(20px);transition:all .4s ease;
+  }
+  .gallery-item .ovr .c{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent)}
+  .gallery-item .ovr .t{font-family:'Cormorant Garamond',serif;font-size:22px;margin-top:4px}
+  .gallery-item:hover img{transform:scale(1.1)}
+  .gallery-item:hover::after{opacity:1}
+  .gallery-item:hover .ovr{opacity:1;transform:translateY(0)}
+
+  .gallery-item.tall{grid-row:span 2}
+  .gallery-item.wide{grid-column:span 2}
+
+  .gallery-note{
+    text-align:center;margin-top:40px;font-size:13px;color:var(--muted);
+    letter-spacing:.1em;display:inline-flex;align-items:center;gap:10px;justify-content:center;width:100%;
+  }
+  .gallery-note i{color:var(--accent)}
+
+  @media (max-width:880px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+    .gallery-item.wide{grid-column:span 1}
+  }
+
+  /* ====== TESTIMONIALS ====== */
+  .testi-section{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .testi-track{
+    max-width:920px;margin:0 auto;position:relative;
+  }
+  .testi-slide{
+    text-align:center;padding:40px 20px;display:none;animation:fadeUp .6s ease;
+  }
+  .testi-slide.active{display:block}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .testi-stars{color:var(--accent);font-size:16px;margin-bottom:24px;letter-spacing:6px}
+  .testi-quote{
+    font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,40px);
+    font-style:italic;line-height:1.4;margin-bottom:32px;color:var(--cream);
+  }
+  .testi-author{display:flex;align-items:center;justify-content:center;gap:14px}
+  .testi-avatar{
+    width:54px;height:54px;border-radius:50%;
+    background:linear-gradient(135deg,var(--accent),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;font-weight:600;
+  }
+  .testi-name{font-size:15px;font-weight:600;letter-spacing:.05em}
+  .testi-role{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+  .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:40px}
+  .testi-dots button{
+    width:30px;height:3px;border:none;background:var(--line);cursor:pointer;
+    transition:all .3s ease;border-radius:2px;
+  }
+  .testi-dots button.active{background:var(--accent);width:50px}
+
+  /* ====== CONTACT ====== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .contact-info h2{font-size:clamp(38px,5vw,64px);margin:18px 0 24px}
+  .contact-info p{color:rgba(243,236,225,.75);font-size:16px;line-height:1.8;margin-bottom:36px;font-weight:300;max-width:480px}
+  .contact-list{display:flex;flex-direction:column;gap:18px;margin-bottom:36px}
+  .contact-item{
+    display:flex;gap:18px;align-items:center;padding:18px 20px;
+    background:rgba(243,236,225,.03);border:1px solid var(--line);border-radius:14px;
+    transition:all .3s ease;
+  }
+  .contact-item:hover{border-color:var(--accent);transform:translateX(6px);background:rgba(255,106,44,.05)}
+  .contact-item .ic{
+    width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    background:rgba(255,106,44,.12);color:var(--accent);font-size:18px;flex-shrink:0;
+  }
+  .contact-item .lbl{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+  .contact-item .val{font-size:15px;margin-top:2px;font-weight:500}
+  .social-row{display:flex;gap:12px}
+  .social-row a{
+    width:46px;height:46px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--cream);
+    transition:all .35s ease;font-size:16px;
+  }
+  .social-row a:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-4px)}
+
+  .contact-form{
+    background:linear-gradient(180deg,rgba(243,236,225,.04),rgba(243,236,225,.01));
+    border:1px solid var(--line);border-radius:22px;padding:40px;
+  }
+  .form-title{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:6px}
+  .form-sub{font-size:13px;color:var(--muted);margin-bottom:30px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .form-field{margin-bottom:14px}
+  .form-field label{
+    display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:8px;font-weight:500;
+  }
+  .form-field input,.form-field select,.form-field textarea{
+    width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line);
+    color:var(--cream);padding:14px 16px;border-radius:10px;font-family:'Outfit',sans-serif;
+    font-size:14px;transition:all .3s ease;
+  }
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    outline:none;border-color:var(--accent);background:rgba(255,106,44,.05);
+  }
+  .form-field textarea{resize:vertical;min-height:100px;font-family:'Outfit',sans-serif}
+  .form-submit{
+    width:100%;background:var(--accent);color:#fff;border:none;padding:16px;border-radius:10px;
+    font-size:12px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;cursor:pointer;
+    transition:all .35s ease;font-family:'Outfit',sans-serif;margin-top:8px;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .form-submit:hover{background:#ff5710;transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,106,44,.3)}
+
+  @media (max-width:880px){
+    .contact-grid{grid-template-columns:1fr;gap:50px}
+    .form-row{grid-template-columns:1fr}
+    .contact-form{padding:30px 24px}
+  }
+
+  /* ====== FOOTER ====== */
+  footer{
+    background:var(--bg-2);border-top:1px solid var(--line);padding:70px 0 30px;
+  }
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:50px}
+  .footer-brand .logo-wrap{margin-bottom:20px}
+  .footer-brand p{color:var(--muted);font-size:14px;line-height:1.7;max-width:340px;font-weight:300}
+  .footer-col h4{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:600}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col a{color:rgba(243,236,225,.7);font-size:14px;transition:color .3s ease;font-weight:300}
+  .footer-col a:hover{color:var(--accent)}
+  .footer-bottom{
+    border-top:1px solid var(--line);padding-top:30px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .footer-bottom p{font-size:12px;color:var(--muted);letter-spacing:.05em}
+  .footer-bottom .links{display:flex;gap:24px}
+  .footer-bottom .links a{font-size:12px;color:var(--muted)}
+  .footer-bottom .links a:hover{color:var(--accent)}
+
+  @media (max-width:880px){
+    .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr}
+  }
+
+  /* ====== Floating Action ====== */
+  .float-actions{
+    position:fixed;right:24px;bottom:24px;z-index:40;display:flex;flex-direction:column;gap:12px;
+  }
+  .float-btn{
+    width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);transition:all .35s ease;
+  }
+  .float-btn.call{background:var(--accent)}
+  .float-btn.insta{background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af)}
+  .float-btn:hover{transform:translateY(-4px) scale(1.06)}
+  .float-btn::before{
+    content:"";position:absolute;inset:0;border-radius:50%;border:2px solid currentColor;
+    animation:ripple 2s ease-out infinite;opacity:0;
+  }
+  .float-btn.call::before{animation-delay:.5s}
+  @keyframes ripple{
+    0%{transform:scale(1);opacity:.6}
+    100%{transform:scale(1.8);opacity:0}
+  }
+
+  /* ====== Toast ====== */
+  .toast{
+    position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);
+    background:var(--accent);color:#fff;padding:14px 24px;border-radius:50px;
+    font-size:13px;font-weight:600;letter-spacing:.05em;z-index:200;
+    box-shadow:0 20px 40px rgba(255,106,44,.4);transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    display:flex;align-items:center;gap:10px;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* ====== Reveal ====== */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.in{opacity:1;transform:translateY(0)}
+  .reveal.d1{transition-delay:.1s}
+  .reveal.d2{transition-delay:.2s}
+  .reveal.d3{transition-delay:.3s}
+  .reveal.d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ====== NAVIGATION ====== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo-wrap">
+      <div class="logo-circle">
+        <img src="https://z-cdn-media.chatglm.cn/files/06f98bc2-9532-4371-8954-46b7225515d8.png?auth_key=1885043147-0b3e42bad9f5428fa7fd8c46d2202eb4-0-6d42b3970e7f9065356a4e70fc473168" alt="CHIC Unisex Salon & Academy Logo" />
+      </div>
+      <div class="logo-text">
+        <div class="name">CHIC</div>
+        <div class="sub">Unisex Salon & Academy</div>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">
+      <i class="fa-solid fa-calendar-check"></i> Book Now
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <canvas id="particles"></canvas>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag eyebrow reveal">Certified Stylists · Unisex Elegance</div>
+        <h1 class="reveal d1">
+          <span class="line">Where Style</span>
+          <span class="line">Meets <span class="accent">Artistry</span></span>
+        </h1>
+        <p class="lead reveal d2">
+          A unisex sanctuary of beauty — from precision haircuts and radiant facials
+          to intricate nail art and breathtaking bridal transformations. Crafted by
+          certified stylists who treat every client as a canvas.
+        </p>
+        <div class="hero-actions reveal d3">
+          <a href="#contact" class="btn-primary">
+            <i class="fa-solid fa-calendar-check"></i> Book Appointment
+          </a>
+          <a href="#services" class="btn-ghost">
+            Explore Services <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="hero-meta reveal d4">
+          <div class="item">
+            <div class="num" data-count="12">0</div>
+            <div class="lbl">Years of Art</div>
+          </div>
+          <div class="item">
+            <div class="num" data-count="8500">0</div>
+            <div class="lbl">Happy Clients</div>
+          </div>
+          <div class="item">
+            <div class="num" data-count="15">0</div>
+            <div class="lbl">Certified Pros</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal d2">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" alt="Stylist at work at CHIC Unisex Salon" />
+        <div class="hero-badge">
+          <div>
+            <div class="t">Bridal & Beyond</div>
+            <div class="s">Signature Service</div>
+          </div>
+          <div class="s">2025</div>
+        </div>
+        <svg class="rotating-badge" viewBox="0 0 200 200">
+          <defs>
+            <path id="circlePath" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+          </defs>
+          <circle cx="100" cy="100" r="78" fill="rgba(14,13,12,.85)" stroke="#ff6a2c" stroke-width="1"/>
+          <text fill="#ff6a2c" font-size="13" letter-spacing="3" font-family="Outfit">
+            <textPath href="#circlePath">CHIC · UNISEX SALON · CERTIFIED STYLISTS · </textPath>
+          </text>
+          <text x="100" y="105" text-anchor="middle" fill="#f3ece1" font-size="22" font-family="Cormorant Garamond" font-style="italic">est.</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MARQUEE ====== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Haircuts</span><span>Facials</span><span>Nail Art</span><span>Bridal</span>
+    <span>Makeup</span><span>Styling</span><span>Spa</span><span>Academy</span>
+    <span>Haircuts</span><span>Facials</span><span>Nail Art</span><span>Bridal</span>
+    <span>Makeup</span><span>Styling</span><span>Spa</span><span>Academy</span>
+  </div>
+</div>
+
+<!-- ====== ABOUT ====== -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-experience">
+          <div class="y">12+</div>
+          <div class="l">Years</div>
+        </div>
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Inside CHIC Unisex Salon" />
+        </div>
+        <div class="about-img-sub">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" alt="CHIC certified stylist" />
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="eyebrow reveal">About CHIC</div>
+        <h2 class="reveal d1">Crafted by <em style="color:var(--accent);font-style:italic">Certified</em> Hands. Inspired by You.</h2>
+        <p class="reveal d2">
+          At CHIC Unisex Salon & Academy, beauty is more than a service — it's a discipline.
+          Every member of our team is a <strong style="color:var(--cream)">certified stylist</strong>
+          trained at our in-house academy, blending global techniques with an intuitive understanding
+          of Indian hair, skin, and personal expression.
+        </p>
+        <p class="reveal d2">
+          From the moment you walk in, expect a calm, inclusive space designed for everyone.
+          Whether you're here for a sharp new cut, a glowing facial, statement nail art, or
+          your bridal day — we deliver precision, hygiene, and a touch of artistry in every session.
+        </p>
+
+        <div class="cert-row">
+          <div class="cert-item reveal d3">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <div class="t">Certified Stylists</div>
+              <div class="d">Academy-trained professionals only</div>
+            </div>
+          </div>
+          <div class="cert-item reveal d3">
+            <i class="fa-solid fa-shield-heart"></i>
+            <div>
+              <div class="t">Hygiene First</div>
+              <div class="d">Sanitised tools & single-use kits</div>
+            </div>
+          </div>
+          <div class="cert-item reveal d4">
+            <i class="fa-solid fa-venus-mars"></i>
+            <div>
+              <div class="t">Unisex & Inclusive</div>
+              <div class="d">A welcoming chair for everyone</div>
+            </div>
+          </div>
+          <div class="cert-item reveal d4">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <div class="t">Premium Products</div>
+              <div class="d">Only trusted, salon-grade brands</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section id="services" style="background:linear-gradient(180deg,var(--bg),var(--bg-2))">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal" style="justify-content:center">What We Do</div>
+      <h2 class="reveal d1">Signature Services</h2>
+      <p class="reveal d2">Four pillars of beauty, mastered. Each service delivered by certified stylists using premium products and a whole lot of care.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Haircuts -->
+      <div class="service-card reveal">
+        <div class="bg"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Haircut service" /></div>
+        <div class="service-content">
+          <div>
+            <div class="service-num">01 / Service</div>
+            <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+          </div>
+          <div>
+            <h3>Haircuts & Styling</h3>
+            <p>Precision cuts, layered texturing, keratin treatments and blow-dries tailored to your face, hair type and lifestyle.</p>
+            <div class="service-tags">
+              <span>Women's Cut</span><span>Men's Cut</span><span>Keratin</span><span>Blow-dry</span>
+            </div>
+            <a href="#contact" class="service-link">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facials -->
+      <div class="service-card reveal d1">
+        <div class="bg"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Facial service" /></div>
+        <div class="service-content">
+          <div>
+            <div class="service-num">02 / Service</div>
+            <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+          </div>
+          <div>
+            <h3>Facials & Skincare</h3>
+            <p>From hydrating clean-ups to advanced brightening and anti-aging facials — glowing, healthy skin in every session.</p>
+            <div class="service-tags">
+              <span>Fruit Facial</span><span>Gold</span><span>Anti-Aging</span><span>Clean-up</span>
+            </div>
+            <a href="#contact" class="service-link">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nail Art -->
+      <div class="service-card reveal d2">
+        <div class="bg"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Nail art service" /></div>
+        <div class="service-content">
+          <div>
+            <div class="service-num">03 / Service</div>
+            <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+          </div>
+          <div>
+            <h3>Nail Art & Extensions</h3>
+            <p>Intricate hand-painted designs, gel polish, acrylic extensions and luxurious manicure-pedicure rituals.</p>
+            <div class="service-tags">
+              <span>Gel Polish</span><span>Extensions</span><span>Manicure</span><span>Pedicure</span>
+            </div>
+            <a href="#contact" class="service-link">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bridal -->
+      <div class="service-card reveal d3">
+        <div class="bg"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=600&q=80" alt="Bridal service" /></div>
+        <div class="service-content">
+          <div>
+            <div class="service-num">04 / Service</div>
+            <div class="service-icon"><i class="fa-solid fa-crown"></i></div>
+          </div>
+          <div>
+            <h3>Bridal & Party Makeup</h3>
+            <p>Complete bridal packages — HD makeup, hair styling, draping and pre-bridal prep for your most beautiful day.</p>
+            <div class="service-tags">
+              <span>Bridal HD</span><span>Pre-Bridal</span><span>Party</span><span>Reception</span>
+            </div>
+            <a href="#contact" class="service-link">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== GALLERY ====== -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal" style="justify-content:center">Our Portfolio</div>
+      <h2 class="reveal d1">A Glimpse of Our Craft</h2>
+      <p class="reveal d2">Real looks, real clients, real artistry. Filter by category to explore our work.</p>
+    </div>
+
+    <div class="gallery-filters reveal">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="hair">Hair</button>
+      <button data-filter="facial">Facial</button>
+      <button data-filter="nails">Nails</button>
+      <button data-filter="bridal">Bridal</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item tall" data-cat="bridal">
+        <img src="https://images.unsplash.com/photo-1595956553066-fe24a8c33395?auto=format&fit=crop&w=700&q=80" alt="Bridal makeup look" />
+        <div class="ovr"><div class="c">Bridal</div><div class="t">Royal Bride</div></div>
+      </div>
+      <div class="gallery-item" data-cat="hair">
+        <img src="https://images.unsplash.com/photo-1599387737838-626a7cf8b1ec?auto=format&fit=crop&w=600&q=80" alt="Haircut style" />
+        <div class="ovr"><div class="c">Hair</div><div class="t">Layered Cut</div></div>
+      </div>
+      <div class="gallery-item" data-cat="nails">
+        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Nail art design" />
+        <div class="ovr"><div class="c">Nails</div><div class="t">Floral Tips</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="facial">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80" alt="Facial glow" />
+        <div class="ovr"><div class="c">Facial</div><div class="t">Radiance Facial</div></div>
+      </div>
+      <div class="gallery-item" data-cat="hair">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" alt="Men's haircut" />
+        <div class="ovr"><div class="c">Hair</div><div class="t">Men's Fade</div></div>
+      </div>
+      <div class="gallery-item" data-cat="nails">
+        <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&w=600&q=80" alt="Gel nail polish" />
+        <div class="ovr"><div class="c">Nails</div><div class="t">Gel French</div></div>
+      </div>
+      <div class="gallery-item tall" data-cat="bridal">
+        <img src="https://images.unsplash.com/photo-158325448774-91d3a8f8fdd1?auto=format&fit=crop&w=700&q=80" alt="Bridal hairstyle" />
+        <div class="ovr"><div class="c">Bridal</div><div class="t">South Indian Bride</div></div>
+      </div>
+      <div class="gallery-item wide" data-cat="hair">
+        <img src="https://images.unsplash.com/photo-1562594980-ad0b2e7e7e3a?auto=format&fit=crop&w=900&q=80" alt="Hair coloring" />
+        <div class="ovr"><div class="c">Hair</div><div class="t">Balayage</div></div>
+      </div>
+    </div>
+
+    <div class="gallery-note reveal">
+      <i class="fa-solid fa-camera"></i> More looks coming soon — follow our Instagram for daily updates
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIALS ====== -->
+<section id="reviews" class="testi-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow reveal" style="justify-content:center">Client Love</div>
+      <h2 class="reveal d1">Words From Our Chairs</h2>
+    </div>
+
+    <div class="testi-track reveal d2">
+      <div class="testi-slide active">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I've never felt more confident walking out of a salon. The certified stylists actually listen — my haircut grew out beautifully and the facial left my skin glowing for weeks."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div style="text-align:left">
+            <div class="testi-name">Ananya Sharma</div>
+            <div class="testi-role">Regular Client · 2 Years</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-slide">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Got my bridal makeup and hair done at CHIC. The team was professional, punctual, and the look lasted through tears, dances and a thousand photos. Forever grateful."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div style="text-align:left">
+            <div class="testi-name">Priya Reddy</div>
+            <div class="testi-role">Bride · December 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-slide">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Finally a unisex salon where I actually feel comfortable as a guy. Clean fade, great conversation, no upselling. The nail art my girlfriend got was next level too."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div style="text-align:left">
+            <div class="testi-name">Rohit Verma</div>
+            <div class="testi-role">Monthly Client</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-slide">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The attention to detail in their nail art is unreal. I bring a Pinterest reference and they nail it every single time. Hygiene standards are visibly top-notch too."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div style="text-align:left">
+            <div class="testi-name">Meera Kapoor</div>
+            <div class="testi-role">Nail Art Enthusiast</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-dots" id="testiDots">
+        <button class="active" data-i="0"></button>
+        <button data-i="1"></button>
+        <button data-i="2"></button>
+        <button data-i="3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow reveal">Get in Touch</div>
+        <h2 class="reveal d1">Let's Make You <em style="color:var(--accent);font-style:italic">Gorgeous</em>.</h2>
+        <p class="reveal d2">Walk-ins welcome, but appointments preferred for bridal and weekend slots. Call us, DM on Instagram, or drop a message — we usually reply within an hour.</p>
+
+        <div class="contact-list">
+          <a href="tel:7305763602" class="contact-item reveal d2">
+            <div class="ic"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <div class="lbl">Call / WhatsApp</div>
+              <div class="val">7305763602</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/chic_unisexsalon?igsh=bXZsejc5MTVoYno=" target="_blank" rel="noopener" class="contact-item reveal d3">
+            <div class="ic"><i class="fa-brands fa-instagram"></i></div>
+            <div>
+              <div class="lbl">Instagram</div>
+              <div class="val">@chic_unisexsalon</div>
+            </div>
+          </a>
+          <div class="contact-item reveal d3">
+            <div class="ic"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="lbl">Working Hours</div>
+              <div class="val">Mon – Sun · 10:00 AM – 8:00 PM</div>
+            </div>
+          </div>
+          <div class="contact-item reveal d4">
+            <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="lbl">Visit Us</div>
+              <div class="val">CHIC Unisex Salon & Academy</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-row reveal d4">
+          <a href="https://www.instagram.com/chic_unisexsalon?igsh=bXZsejc5MTVoYno=" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/917305763602" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="tel:7305763602" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal d2" id="bookingForm">
+        <div class="form-title">Book an Appointment</div>
+        <div class="form-sub">Fill in your details — we'll call you back to confirm.</div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-field">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="10-digit mobile" pattern="[0-9]{10}" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Service</label>
+            <select name="service" required>
+              <option value="">Choose service</option>
+              <option>Haircut & Styling</option>
+              <option>Facial & Skincare</option>
+              <option>Nail Art & Extensions</option>
+              <option>Bridal & Party Makeup</option>
+              <option>Other / Multiple</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Preferred Date</label>
+            <input type="date" name="date" required />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Notes (optional)</label>
+          <textarea name="notes" placeholder="Any specific requests, references, or questions..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <i class="fa-solid fa-paper-plane"></i> Request Appointment
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo-wrap">
+          <div class="logo-circle">
+            <img src="https://z-cdn-media.chatglm.cn/files/06f98bc2-9532-4371-8954-46b7225515d8.png?auth_key=1885043147-0b3e42bad9f5428fa7fd8c46d2202eb4-0-6d42b3970e7f9065356a4e70fc473168" alt="CHIC logo" />
+          </div>
+          <div class="logo-text">
+            <div class="name">CHIC</div>
+            <div class="sub">Unisex Salon & Academy</div>
+          </div>
+        </a>
+        <p>A unisex sanctuary of beauty and self-care. Crafted by certified stylists, designed for everyone. Hair · Skin · Nails · Bridal.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Haircuts</a></li>
+          <li><a href="#services">Facials</a></li>
+          <li><a href="#services">Nail Art</a></li>
+          <li><a href="#services">Bridal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Salon</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Book Now</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="tel:7305763602">7305763602</a></li>
+          <li><a href="https://www.instagram.com/chic_unisexsalon?igsh=bXZsejc5MTVoYno=" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/917305763602" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#contact">Location</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 CHIC Unisex Salon & Academy. All rights reserved.</p>
+      <div class="links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ====== Floating Actions ====== -->
+<div class="float-actions">
+  <a href="tel:7305763602" class="float-btn call" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://www.instagram.com/chic_unisexsalon?igsh=bXZsejc5MTVoYno=" target="_blank" rel="noopener" class="float-btn insta" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+</div>
+
+<!-- ====== Toast ====== -->
+<div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Done!</span></div>
+
+<script>
+  /* ===== Nav scroll ===== */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  /* ===== Mobile menu ===== */
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const icon = menuToggle.querySelector('i');
+    icon.className = navLinks.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+  }));
+
+  /* ===== Reveal on scroll ===== */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ===== Counter ===== */
+  const counters = document.querySelectorAll('[data-count]');
+  const cObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.count;
+      let cur = 0;
+      const step = Math.max(1, Math.floor(target / 80));
+      const t = setInterval(() => {
+        cur += step;
+        if (cur >= target) { cur = target; clearInterval(t); }
+        el.textContent = cur.toLocaleString() + (target >= 1000 ? '+' : '+');
+      }, 28);
+      cObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => cObserver.observe(c));
+
+  /* ===== Particles ===== */
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  function resizeCanvas() {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+  function initParticles() {
+    particles = [];
+    const count = Math.min(50, Math.floor(canvas.width / 25));
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.6 + 0.4,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        alpha: Math.random() * 0.5 + 0.2
+      });
+    }
+  }
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, Math.max(0.1, p.r), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,138,76,${p.alpha})`;
+      ctx.fill();
+    });
+    // connect nearby
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 120) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(201,163,94,${0.12 * (1 - d/120)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(drawParticles);
+  }
+  window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+  resizeCanvas(); initParticles(); drawParticles();
+
+  /* ===== Gallery Filter ===== */
+  const filterBtns = document.querySelectorAll('.gallery-filters button');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        const show = f === 'all' || item.dataset.cat === f;
+        item.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  /* ===== Testimonials ===== */
+  const slides = document.querySelectorAll('.testi-slide');
+  const dots = document.querySelectorAll('#testiDots button');
+  let curSlide = 0;
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+    curSlide = i;
+  }
+  dots.forEach(d => d.addEventListener('click', () => showSlide(+d.dataset.i)));
+  setInterval(() => showSlide((curSlide + 1) % slides.length), 6000);
+
+  /* ===== Toast ===== */
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toastMsg');
+  function showToast(msg) {
+    toastMsg.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+
+  /* ===== Form ===== */
+  document.getElementById('bookingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = e.target.name.value.trim();
+    const phone = e.target.phone.value.trim();
+    const service = e.target.service.value;
+    if (!name || !phone || !service) {
+      showToast('Please fill all required fields');
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      showToast('Please enter a valid 10-digit number');
+      return;
+    }
+    showToast(`Thanks ${name.split(' ')[0]}! We'll call you shortly.`);
+    e.target.reset();
+  });
+
+  /* ===== Date min today ===== */
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+</script>
+</body>
+</html>
